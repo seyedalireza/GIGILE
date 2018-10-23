@@ -17,14 +17,14 @@ import java.util.ArrayList;
 public class Home extends Entity {
     private int blockId;
     private int id;
-    private Long capacity = Const.START_HOME_CAPACITY;
-//    private Long updateIncrease = Const.START_HOME_UPDATE_INCREASE;
+    private int floorNum = 0;
+    private int unitNum = 0;
     private ArrayList<Floor> floors = new ArrayList<>();
     private final int score = 10;
 
     @Override
     public void update() {
-
+        floors.add(new Floor(unitNum));
     }
 
     @Override

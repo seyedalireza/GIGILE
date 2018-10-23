@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public class Block extends Entity {
     private int id;
     private ArrayList<Entity> entities = new ArrayList<>();
-//    private boolean isDestroy = false;
 
     @Override
     public void update() {

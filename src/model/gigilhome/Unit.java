@@ -13,7 +13,6 @@ public class Unit extends Entity{
 
     @Override
     public void update() {
-
     }
 
     @Override

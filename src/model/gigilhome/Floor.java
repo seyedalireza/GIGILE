@@ -7,12 +7,18 @@ import java.util.ArrayList;
 
 @Getter
 public class Floor extends Entity{
-    private ArrayList<Unit> units;
+    private ArrayList<Unit> units = new ArrayList<>();
     private final int score = 3;
+
+    public Floor(int unitNum) {
+        for (int i = 0; i < unitNum; i++){
+            units.add(new Unit());
+        }
+    }
 
     @Override
     public void update() {
-
+        units.add(new Unit());
     }
 
     @Override
