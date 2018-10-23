@@ -38,9 +38,11 @@ public class Controller {
                     removeHandler(restCommandParts);
                     break;
                 case "attack":
+                    //TODO
 
                     break;
                 case "loot":
+                    //TODO
 
                     break;
                 case "see":
@@ -64,22 +66,43 @@ public class Controller {
     private void addHandler(String[] commandParts){
         switch (commandParts[0]){
             case "block":
+                //TODO
                 break;
             case "home":
+                //TODO
                 break;
             case "bazaar":
+                //TODO
                 break;
             case "park":
+                //TODO
                 break;
             case "army":
+                //TODO
                 break;
             case "defense":
+                //TODO
                 break;
         }
     }
 
     private void upgradeHandler(String[] commandParts){
-
+        int blockId = Integer.parseInt(commandParts[0]);
+        User user = users[0];
+        if (!user.isMyTurn())
+            user = users[1];
+        if (user.getCity().getBlock(blockId) == null)
+            System.out.println("not possible");
+        else{
+            Block block = user.getCity().getBlocks(blockId);
+            if (commandParts.length == 1){
+                block.update();
+            }else{
+                int unitId = Integer.parseInt(commandParts[1]);
+                Entity entity = block.getEntityByID(unitId);
+                entity.update();
+            }
+        }
     }
 
     private void removeHandler(String[] commandParts){
@@ -103,8 +126,10 @@ public class Controller {
     private void seeHandler(String[] commandParts){
         switch (commandParts[0]){
             case "gills":
+                //TODO
                 break;
             case "score":
+                //TODO
                 break;
         }
     }
