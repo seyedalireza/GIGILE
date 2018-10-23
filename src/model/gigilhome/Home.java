@@ -19,4 +19,8 @@ public class Home extends Entity {
     private Long unit = Const.START_NUMBER_UNITS;
     private Long gilgPerUnit = Const.GILGE_PER_UNIT;
 
+    @Override
+    public void update() {
+
+    }
 }

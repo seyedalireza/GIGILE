@@ -17,4 +17,8 @@ public class Block extends Entity {
     private ArrayList<Home> homes = new ArrayList<>();
     private boolean isDestroy = false;
 
+    @Override
+    public void update() {
+
+    }
 }

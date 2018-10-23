@@ -16,4 +16,9 @@ public class Park extends Entity {
     private Long increaseScoreAmount = Const.START_MARKET_AMOUNT_SCORE;
     private Long increaseMoneyAmount = Const.START_MARKET_AMOUNT_MONEY;
     private Long numOfWorkers = 0L;
+
+    @Override
+    public void update() {
+
+    }
 }

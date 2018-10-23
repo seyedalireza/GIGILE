@@ -15,4 +15,9 @@ import utils.Const;
 public class Market extends Entity {
     private Long increaseScoreAmount = Const.START_MARKET_AMOUNT_SCORE;
     private Long increaseMoneyAmount = Const.START_MARKET_AMOUNT_MONEY;
+
+    @Override
+    public void update() {
+
+    }
 }

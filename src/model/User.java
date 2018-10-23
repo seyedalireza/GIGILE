@@ -13,9 +13,12 @@ import utils.Const;
 public class User {
     private String name;
     private Long score = 0L;
-    private Long mony = Const.START_MONEY;
+    private Long money = Const.START_MONEY;
+    private City city = new City();
 
-    private void dayPass() {
-        
+    public void claculateScore() {
+
     }
+
+
 }

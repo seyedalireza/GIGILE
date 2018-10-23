@@ -12,4 +12,8 @@ import model.Entity;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Army extends Entity {
+    @Override
+    public void update() {
+
+    }
 }
