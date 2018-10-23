@@ -25,6 +25,7 @@ public class Home extends Entity {
     @Override
     public void update() {
         floors.add(new Floor(unitNum));
+        floorNum++;
     }
 
     @Override

@@ -15,6 +15,7 @@ public class User {
     private Long score = 0L;
     private Long money = Const.START_MONEY;
     private City city = new City();
+    private boolean isMyTurn = false;
 
     public void claculateScore() {
 
