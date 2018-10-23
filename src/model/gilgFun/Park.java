@@ -13,12 +13,19 @@ import utils.Const;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Park extends Entity {
-    private Long increaseScoreAmount = Const.START_MARKET_AMOUNT_SCORE;
-    private Long increaseMoneyAmount = Const.START_MARKET_AMOUNT_MONEY;
+    private int blockId;
+    private int id;
+    private final Long increaseScoreAmount = Const.START_MARKET_AMOUNT_SCORE;
     private Long numOfWorkers = 0L;
+    private final int score = 4;
 
     @Override
     public void update() {
 
+    }
+
+    @Override
+    public double calculateScore() {
+        return score;
     }
 }

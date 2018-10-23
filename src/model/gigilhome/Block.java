@@ -13,12 +13,17 @@ import java.util.ArrayList;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Block extends Entity {
-
-    private ArrayList<Home> homes = new ArrayList<>();
-    private boolean isDestroy = false;
+    private int id;
+    private ArrayList<Entity> entities = new ArrayList<>();
+//    private boolean isDestroy = false;
 
     @Override
     public void update() {
+
+    }
+
+    @Override
+    public double calculateScore() {
 
     }
 }

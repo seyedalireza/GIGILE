@@ -12,8 +12,20 @@ import model.Entity;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Defender extends Entity {
+    private int blockId;
+    private int id;
+    private int level = 1;
+    private double defendLevel = .2;
+    private Long numOfWorkers = 30L;
+    private final int score = 15;
+
     @Override
     public void update() {
 
+    }
+
+    @Override
+    public double calculateScore() {
+        return score;
     }
 }
