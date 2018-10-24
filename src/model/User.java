@@ -61,5 +61,12 @@ public class User {
 
     }
 
+    public void seeGills() {
+        System.out.println(this.money);
+    }
+
+    public void seeScore(){
+        System.out.println(this.city.calculateScore());
+    }
 
 }

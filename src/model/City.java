@@ -51,4 +51,12 @@ public class City {
         assert army != null;
         army.loot(opponent, blockId);
     }
+
+    public double calculateScore(){
+        double totalScore = 0;
+        for (Block block: blocks) {
+            totalScore += block.calculateScore();
+        }
+        return totalScore;
+    }
 }

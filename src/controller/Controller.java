@@ -145,12 +145,21 @@ public class Controller {
     }
 
     private void seeHandler(String[] commandParts){
+        User current;
         switch (commandParts[0]){
             case "gills":
-                //TODO
+                current = users[0];
+                if (!current.isMyTurn()){
+                    current = users[1];
+                }
+                current.seeGills();
                 break;
             case "score":
-                //TODO
+                current = users[0];
+                if (!current.isMyTurn()){
+                    current = users[1];
+                }
+                current.seeScore();
                 break;
         }
     }
