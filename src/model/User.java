@@ -135,6 +135,8 @@ public class User {
         if (money >=1000) {
             if (city.getBlock(blockId).getId() == (entityCounter.getBlockNumber()-1)) {
                 entityCounter.setBlockNumber(city.getBlock(blockId).getId() - 1);
+            } else {
+                entityCounter.setBlockNumber(entityCounter.getBlockNumber() - 2);
             }
             city.getBlocks().remove(city.getBlock(blockId));
             money+= 500;
@@ -178,16 +180,20 @@ public class User {
             if (money >= (home.getFloorNum()*50+ home.getUnitNum() + 300)) {
                 home.increaseFloor(1);
                 home.increaseUnit(1);
+                money -=  (home.getFloorNum()*50+ home.getUnitNum() + 300);
                 return;
             }
         } else if (floor && home.getFloorNum() < 6 ) {
             if (money >= (home.getUnitNum() + 300)) {
                 home.increaseFloor(1);
+                money -= (home.getUnitNum() + 300);
+
                 return;
             }
         } else if (unit && home.getUnitNum() < 4) {
             if (money >= (home.getFloorNum()*50)) {
                 home.increaseUnit(1);
+                money -= (home.getFloorNum()*50);
                 return;
             }
         }
@@ -257,7 +263,7 @@ public class User {
         for (Person worker : market.getWorkers()) {
             worker.getFired();
         }
-        if ((city.getBlock(blockId).getEntityCounter().getArmyNumber()-1) == market.getId()) {
+        if ((city.getBlock(blockId).getEntityCounter().getEntityNumber()) == market.getId()) {
             city.getBlock(blockId).getEntityCounter().setEntityNumber(market.getId() -1);
         }
         Block block = city.getBlock(blockId);
@@ -265,9 +271,10 @@ public class User {
         block.getEntities().remove(market);
         money -= 500;
     }public void removePark(int blockId, Park market) {
-        if ((city.getBlock(blockId).getEntityCounter().getArmyNumber()-1) == market.getId()) {
+        if ((city.getBlock(blockId).getEntityCounter().getEntityNumber()) == market.getId()) {
             city.getBlock(blockId).getEntityCounter().setEntityNumber(market.getId() -1);
         }
+
         Block block = city.getBlock(blockId);
         changeSatisfactory(block, 1.0/market.getIncreaseScoreAmount());
         block.getEntities().remove(market);
@@ -276,7 +283,7 @@ public class User {
         for (Person worker : market.getWorkers()) {
             worker.getFired();
         }
-        if ((city.getBlock(blockId).getEntityCounter().getArmyNumber()-1) == market.getId()) {
+        if ((city.getBlock(blockId).getEntityCounter().getEntityNumber()) == market.getId()) {
             city.getBlock(blockId).getEntityCounter().setEntityNumber(market.getId() -1);
         }
         Block block = city.getBlock(blockId);
@@ -286,7 +293,7 @@ public class User {
         for (Person worker : market.getWorkers()) {
             worker.getFired();
         }
-        if ((city.getBlock(blockId).getEntityCounter().getArmyNumber()-1) == market.getId()) {
+        if ((city.getBlock(blockId).getEntityCounter().getEntityNumber()) == market.getId()) {
             city.getBlock(blockId).getEntityCounter().setEntityNumber(market.getId() -1);
         }
         Block block = city.getBlock(blockId);

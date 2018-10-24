@@ -73,4 +73,8 @@ public class EntityCounter {
     public void setPersonNumber(int personNumber) {
         this.personNumber = personNumber;
     }
+
+    public int getEntityNumber() {
+        return entityNumber;
+    }
 }

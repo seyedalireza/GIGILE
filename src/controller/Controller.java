@@ -7,6 +7,7 @@ import model.gigilhome.Home;
 import model.gilgArmy.Army;
 import model.gilgArmy.Defender;
 import model.gilgFun.Market;
+import model.gilgFun.Park;
 
 import java.util.Scanner;
 
@@ -198,6 +199,8 @@ public class Controller {
                 }
                 else if (entity instanceof Army) {
                     user.removeArmy(blockId, (Army) entity);
+                } else if (entity instanceof Park) {
+                    user.removePark(blockId, (Park) entity);
                 }
             }
         }
