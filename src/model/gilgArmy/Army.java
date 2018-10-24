@@ -19,6 +19,19 @@ public class Army extends Entity {
     private double attackLevel = .2;
     private Long numOfWorkers = 100L;
     private final int score = 10;
+    private User me;
+
+    public User getMe() {
+        return me;
+    }
+
+    public void setMe(User me) {
+        this.me = me;
+    }
+
+    public Army(User me) {
+        this.me = me;
+    }
 
     public int getBlockId() {
         return blockId;
@@ -88,10 +101,19 @@ public class Army extends Entity {
                 }
             }
         }
+        me.setBaseScore(me.getBaseScore() + opponent.getCity().getBlock(blockId).calculateScore());
         opponent.getCity().remove(blockId);
     }
 
     public void loot(User opponent, int blockId){
-
+        boolean hasDefender = false;
+        for (Entity entity : opponent.getCity().getBlock(blockId).getEntities()) {
+            if (entity instanceof Defender) {
+                hasDefender = true;
+                }
+            }
+            if (!hasDefender) {
+                me.setMoney(me.getMoney() + opponent.getCity().getBlock(blockId).getEntities().size()*500);
+        }
     }
 }

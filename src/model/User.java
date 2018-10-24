@@ -12,7 +12,17 @@ import utils.Const;
 @NoArgsConstructor
 public class User {
     private String name;
-    private Long score = 0L;
+    private double score = 0L;
+    private double baseScore;
+
+    public double getBaseScore() {
+        return baseScore;
+    }
+
+    public void setBaseScore(double baseScore) {
+        this.baseScore = baseScore;
+    }
+
     private Long money = Const.START_MONEY;
     private City city = new City();
     private boolean isMyTurn = false;
@@ -25,11 +35,11 @@ public class User {
         this.name = name;
     }
 
-    public Long getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(Long score) {
+    public void setScore(double score) {
         this.score = score;
     }
 
