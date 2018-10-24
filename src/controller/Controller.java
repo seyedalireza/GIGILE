@@ -101,20 +101,20 @@ public class Controller {
                 current.addBlock();
                 break;
             case "home":
-                current.addHome(Integer.parseInt(commandParts[1]), Integer.parseInt(commandParts[2]),
+                current.addHome(Integer.parseInt(commandParts[2]), Integer.parseInt(commandParts[1]),
                         Integer.parseInt(commandParts[3]));
                 break;
             case "bazaar":
-                current.addMarket();
+                current.addMarket(Integer.parseInt(commandParts[1]));
                 break;
             case "park":
-                current.addPark();
+                current.addPark(Integer.parseInt(commandParts[1]));
                 break;
             case "army":
-                current.addArmy();
+                current.addArmy(Integer.parseInt(commandParts[1]));
                 break;
             case "defense":
-                current.addDefender();
+                current.addDefender(Integer.parseInt(commandParts[1]));
                 break;
         }
     }
