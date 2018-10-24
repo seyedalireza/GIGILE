@@ -98,20 +98,23 @@ public class User {
             block.setId(entityCounter.getBlockNumber());
             city.getBlocks().add(block);
             money-= 1000;
+            return;
         }
         System.out.println("not possible");
     }
 
     public void addHome(int floorSize , int blockId , int unitSize) {
         if (hasCapacityBlock(blockId)) {
-        int cost = (floorSize*unitSize)*100+floorSize*300+700;
-        if (money >= cost) {
-            money -= cost;
-            Home home = new Home(floorSize, unitSize);
-            home.setId(entityCounter.getHomeNumber());
-            city.getBlock(blockId).getEntities().add(home);
-            return;
-        }
+            if (floorSize >= 3 && floorSize <= 6 && unitSize >= 3 && unitSize <= 4) {
+                int cost = (floorSize * unitSize) * 100 + floorSize * 300 + 700;
+                if (money >= cost) {
+                    money -= cost;
+                    Home home = new Home(floorSize, unitSize);
+                    home.setId(entityCounter.getHomeNumber());
+                    city.getBlock(blockId).getEntities().add(home);
+                    return;
+                }
+            }
         }
         System.out.println("not possible");
     }
