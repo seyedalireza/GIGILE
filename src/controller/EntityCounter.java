@@ -15,10 +15,6 @@ public class EntityCounter {
     public EntityCounter() {
     }
 
-    public static EntityCounter getCounter() {
-        return counter;
-    }
-
     public int getHomeNumber() {
         homeNumber++;
         return homeNumber;

@@ -102,19 +102,19 @@ public class User {
         System.out.println("not possible");
     }
 
-    public void addMarket() {
+    public void addMarket(int blockId) {
 
     }
 
-    public void addPark() {
+    public void addPark(int blockId) {
 
     }
 
-    public void addArmy() {
+    public void addArmy(int blockId) {
 
     }
 
-    public void addDefender() {
+    public void addDefender(int blockId) {
 
     }
 }
