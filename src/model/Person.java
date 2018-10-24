@@ -10,6 +10,11 @@ public class Person extends Entity {
     }
 
     @Override
+    public void remove(int id) {
+
+    }
+
+    @Override
     public double calculateScore() {
         return 1;
     }

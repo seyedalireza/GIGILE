@@ -17,6 +17,11 @@ public class Floor extends Entity{
     }
 
     @Override
+    public void remove(int id) {
+
+    }
+
+    @Override
     public void update() {
         units.add(new Unit());
     }
