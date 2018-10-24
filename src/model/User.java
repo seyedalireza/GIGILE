@@ -80,7 +80,7 @@ public class User {
     }
 
     public void seeScore(){
-        System.out.println(this.city.calculateScore());
+        System.out.print(baseScore + this.city.calculateScore());
     }
 
     public void addBlock() {
@@ -169,13 +169,23 @@ public class User {
                 Market market = new Market();
                 market.setId(city.getBlock(blockId).getEntityCounter().getMarketNumber());
                 printId(market);
-                city.getBlock(blockId).getEntities().add(market);
+                Block block = city.getBlock(blockId);
+                block.getEntities().add(market);
+
                 return;
             }
         }
         }
         System.out.println("not possible");
 
+    }
+
+    private void changeSatisfactory(Block block) {
+        for (Entity entity: block.getEntities()) {
+            if (entity instanceof Home) {
+                ((Home)entity).
+            }
+        }
     }
 
     public void addPark(int blockId) {

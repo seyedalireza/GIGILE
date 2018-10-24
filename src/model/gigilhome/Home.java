@@ -1,6 +1,7 @@
 package model.gigilhome;
 
 import model.Entity;
+import model.Person;
 import utils.Const;
 
 import java.util.ArrayList;
@@ -81,7 +82,8 @@ public class Home extends Entity {
         double personScore = calculatePersonScore();
         double unitScore = calculateUnitScore();
         double floorScore = calculateFloorScore();
-        return personScore * 3 + unitScore * 2 + floorScore + score;
+        double homeScore = personScore * 3 + unitScore * 2 + floorScore + score;
+        return homeScore + floorScore + unitScore + personScore;
     }
 
     private double calculatePersonScore(){
@@ -93,7 +95,7 @@ public class Home extends Entity {
         return sum;
     }
 
-    private double calculateUnitScore(){
+    private double calculateUnitScore() {
         double sum = 0;
         for (Floor floor: floors){
             for (Unit unit: floor.getUnits())
@@ -108,5 +110,9 @@ public class Home extends Entity {
             sum += floor.calculateScore();
         }
         return sum;
+    }
+
+    public ArrayList<Person> getPeople(){
+
     }
 }
