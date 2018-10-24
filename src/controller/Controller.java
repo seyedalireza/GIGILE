@@ -81,28 +81,40 @@ public class Controller {
     }
 
     private void changeTurn(){
-
+        if (users[0].isMyTurn()){
+            users[0].setMyTurn(false);
+            users[1].setMyTurn(true);
+        }else{
+            users[0].setMyTurn(true);
+            users[1].setMyTurn(false);
+        }
     }
 
     private void addHandler(String[] commandParts){
+        User current;
+        current = users[0];
+        if (!current.isMyTurn()) {
+            current = users[1];
+        }
         switch (commandParts[0]){
             case "block":
-                //TODO
+                current.addBlock();
                 break;
             case "home":
-                //TODO
+                current.addHome(Integer.parseInt(commandParts[1]), Integer.parseInt(commandParts[2]),
+                        Integer.parseInt(commandParts[3]));
                 break;
             case "bazaar":
-                //TODO
+                current.addMarket();
                 break;
             case "park":
-                //TODO
+                current.addPark();
                 break;
             case "army":
-                //TODO
+                current.addArmy();
                 break;
             case "defense":
-                //TODO
+                current.addDefender();
                 break;
         }
     }

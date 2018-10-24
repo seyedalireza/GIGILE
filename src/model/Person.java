@@ -2,7 +2,16 @@ package model;
 
 //not needed object
 public class Person extends Entity {
-    private float saticfactory;
+    private float satisfactory = 1;
+    private boolean isWorker = false;
+
+    public void work(){
+        isWorker = true;
+    }
+
+    public void getFired(){
+        isWorker = false;
+    }
 
     @Override
     public void update() {
