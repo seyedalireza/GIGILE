@@ -171,7 +171,7 @@ public class User {
                 printId(market);
                 Block block = city.getBlock(blockId);
                 block.getEntities().add(market);
-                changeSatisfactory(block, 1.2);
+                changeSatisfactory(block, market.getIncreaseScoreAmount());
                 return;
             }
         }
