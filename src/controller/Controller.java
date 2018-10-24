@@ -3,6 +3,10 @@ package controller;
 import model.Entity;
 import model.User;
 import model.gigilhome.Block;
+import model.gigilhome.Home;
+import model.gilgArmy.Army;
+import model.gilgArmy.Defender;
+import model.gilgFun.Market;
 
 import java.util.Scanner;
 
@@ -141,11 +145,28 @@ public class Controller {
         else{
             Block block = user.getCity().getBlock(blockId);
             if (commandParts.length == 1){
-                block.update();
+                user.updateBlock(blockId);
             }else{
                 int unitId = Integer.parseInt(commandParts[1]);
                 Entity entity = block.getEntityByID(unitId);
-                entity.update();
+                if (entity instanceof Home) {
+                    boolean unit = false;
+                    boolean floor = false;
+                    if (commandParts[2].equals("unit") || (commandParts.length > 3 && commandParts[3].equals("unit")))
+                        unit = true;
+                    if (commandParts[2].equals("floor") || (commandParts.length > 3 && commandParts[3].equals("floor")))
+                        floor = true;
+                    user.updateHome(unitId, blockId, unit, floor);
+                }
+                else if (entity instanceof Market) {
+                    user.updateMarket(blockId, (Market) entity);
+                }
+                else if (entity instanceof Defender) {
+                    user.updateDefender(blockId, (Defender) entity);
+                }
+                else if (entity instanceof Army) {
+                    user.updateArmy(blockId, (Army) entity);
+                }
             }
         }
     }
