@@ -112,7 +112,12 @@ public class Home extends Entity {
         return sum;
     }
 
-    public ArrayList<Person> getPeople(){
-
+    public ArrayList<Person> getPeople() {
+        ArrayList<Person> people = new ArrayList<>();
+        for (Floor floor : floors)
+            for (Unit unit : floor.getUnits())
+                for (Person person : unit.getPersonList())
+                    people.add(person);
+        return people;
     }
 }

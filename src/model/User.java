@@ -171,7 +171,7 @@ public class User {
                 printId(market);
                 Block block = city.getBlock(blockId);
                 block.getEntities().add(market);
-
+                changeSatisfactory(block, 1.2);
                 return;
             }
         }
@@ -180,10 +180,11 @@ public class User {
 
     }
 
-    private void changeSatisfactory(Block block) {
+    private void changeSatisfactory(Block block, double percent) {
         for (Entity entity: block.getEntities()) {
             if (entity instanceof Home) {
-                ((Home)entity).
+                for (Person person: ((Home)entity).getPeople())
+                    person.setSatisfactory(person.getSatisfactory() * percent);
             }
         }
     }
@@ -196,7 +197,9 @@ public class User {
                 Park park = new Park();
                 park.setId(city.getBlock(blockId).getEntityCounter().getParkNumber());
                 printId(park);
-                city.getBlock(blockId).getEntities().add(park);
+                Block block = city.getBlock(blockId);
+                block.getEntities().add(park);
+                changeSatisfactory(block, 1.1);
                 return;
             }
         }
