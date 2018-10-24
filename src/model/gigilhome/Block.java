@@ -41,7 +41,11 @@ public class Block extends Entity {
 
     @Override
     public double calculateScore() {
-
+        double totalScore = 0;
+        for (Entity entity: entities) {
+            totalScore += entity.calculateScore();
+        }
+        return totalScore;
     }
 
     public Entity getEntityByID(int id){

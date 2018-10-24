@@ -33,4 +33,5 @@ public abstract class Entity {
     public abstract void update();
     public abstract void remove(int id);
     public abstract double calculateScore();
+
 }
