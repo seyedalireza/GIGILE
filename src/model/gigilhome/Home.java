@@ -29,6 +29,11 @@ public class Home extends Entity {
     }
 
     @Override
+    public void remove(int id) {
+
+    }
+
+    @Override
     public double calculateScore() {
         double personScore = calculatePersonScore();
         double unitScore = calculateUnitScore();
