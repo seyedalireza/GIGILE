@@ -3,6 +3,7 @@ package model;
 //not needed object
 public class Person extends Entity {
     private double satisfactory = 1;
+    private int daysOfWorking = 0;
     private boolean isWorker = false;
 
     public boolean isWorker() {
@@ -19,6 +20,15 @@ public class Person extends Entity {
 
     public void getFired(){
         isWorker = false;
+        daysOfWorking = 0;
+    }
+
+    public int getDaysOfWorking() {
+        return daysOfWorking;
+    }
+
+    public void setDaysOfWorking(int daysOfWorking) {
+        this.daysOfWorking = daysOfWorking;
     }
 
     @Override

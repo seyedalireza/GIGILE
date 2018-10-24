@@ -71,9 +71,45 @@ public class User {
         isMyTurn = myTurn;
     }
 
-    public void claculateScore() {
-
+    public void changeTurnActions(){
+        for (Block block: city.getBlocks())
+            for (Entity entity: block.getEntities()) {
+                if (entity instanceof Home) {
+                    for (Person person: ((Home)entity).getPeople())
+                        if (person.isWorker())
+                            person.setDaysOfWorking(person.getDaysOfWorking()+1);
+                }
+                else if(entity instanceof Market) {
+                    ((Market) entity).setDaysOfBeing(((Market) entity).getDaysOfBeing()+1);
+                }
+                else if(entity instanceof Park) {
+                    ((Park) entity).setDaysOfBeing(((Park) entity).getDaysOfBeing()+1);
+                }
+                else if(entity instanceof Army) {
+                    ((Army) entity).setDaysOfBeing(((Army) entity).getDaysOfBeing()+1);
+                }
+                else if(entity instanceof Defender) {
+                    ((Defender) entity).setDaysOfBeing(((Defender) entity).getDaysOfBeing()+1);
+                }
+            }
+        money += calculateMoney();
     }
+    
+    private int calculateMoney() {
+        int total = 0;
+        total += getFreePersons().size() * 100;
+        for (Block block: city.getBlocks()) {
+            for (Entity entity: block.getEntities()) {
+                if (entity instanceof Home) {
+                    for (Person person: ((Home)entity).getPeople())
+                        if (person.isWorker())
+                            total += person.getDaysOfWorking() * 100;
+                }
+            }
+        }
+        return total;
+    }
+
 
     public void seeGills() {
         System.out.println(this.money);

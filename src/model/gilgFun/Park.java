@@ -10,11 +10,21 @@ public class Park extends Entity {
     private int blockId;
     private final double increaseScoreAmount = 1.1;
     private Long numOfWorkers = 0L;
+    private int daysOfBeing = 1;
+
     private final int score = 4;
 
 
     public int getBlockId() {
         return blockId;
+    }
+
+    public int getDaysOfBeing() {
+        return daysOfBeing;
+    }
+
+    public void setDaysOfBeing(int daysOfBeing) {
+        this.daysOfBeing = daysOfBeing;
     }
 
     public void setBlockId(int blockId) {
@@ -57,6 +67,6 @@ public class Park extends Entity {
 
     @Override
     public double calculateScore() {
-        return score;
+        return Math.pow(score, daysOfBeing);
     }
 }

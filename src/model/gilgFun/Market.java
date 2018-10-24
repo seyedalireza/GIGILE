@@ -12,6 +12,7 @@ public class Market extends Entity {
     private Long numOfWorkers = 50L;
     private int level = 1;
     private final int score = 5;
+    private int daysOfBeing = 1;
     private ArrayList<Person> workers = new ArrayList<>();
 
     public ArrayList<Person> getWorkers() {
@@ -62,6 +63,14 @@ public class Market extends Entity {
         this.level = level;
     }
 
+    public int getDaysOfBeing() {
+        return daysOfBeing;
+    }
+
+    public void setDaysOfBeing(int daysOfBeing) {
+        this.daysOfBeing = daysOfBeing;
+    }
+
     public int getScore() {
         return score;
     }
@@ -78,6 +87,6 @@ public class Market extends Entity {
 
     @Override
     public double calculateScore() {
-        return score;
+        return Math.pow(score, daysOfBeing);
     }
 }

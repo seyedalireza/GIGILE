@@ -96,9 +96,11 @@ public class Controller {
         if (users[0].isMyTurn()){
             users[0].setMyTurn(false);
             users[1].setMyTurn(true);
+            users[0].changeTurnActions();
         }else{
             users[0].setMyTurn(true);
             users[1].setMyTurn(false);
+            users[1].changeTurnActions();
         }
     }
 
@@ -181,12 +183,42 @@ public class Controller {
         else{
             Block block = user.getCity().getBlock(blockId);
             if (commandParts.length == 1){
-                user.getCity().remove(blockId);
+                user.removeBlock(blockId);
             }else{
                 int unitId = Integer.parseInt(commandParts[1]);
-                block.remove(unitId);
+                Entity entity = block.getEntityByID(unitId);
+                if (entity instanceof Home) {
+                    System.out.println("not possible");
+                }
+                else if (entity instanceof Market) {
+                    user.removeMarket(blockId, (Market) entity);
+                }
+                else if (entity instanceof Defender) {
+                    user.removeDefender(blockId, (Defender) entity);
+                }
+                else if (entity instanceof Army) {
+                    user.removeArmy(blockId, (Army) entity);
+                }
             }
         }
+
+
+
+//        int blockId = Integer.parseInt(commandParts[0]);
+//        User user = users[0];
+//        if (!user.isMyTurn())
+//            user = users[1];
+//        if (user.getCity().getBlock(blockId) == null)
+//            System.out.println("not possible");
+//        else{
+//            Block block = user.getCity().getBlock(blockId);
+//            if (commandParts.length == 1){
+//                user.getCity().remove(blockId);
+//            }else{
+//                int unitId = Integer.parseInt(commandParts[1]);
+//                block.remove(unitId);
+//            }
+//        }
     }
 
     private void seeHandler(String[] commandParts){

@@ -9,6 +9,8 @@ public class Defender extends Entity {
     private int blockId;
     private int level = 1;
     private double defendLevel = .2;
+    private int daysOfBeing = 1;
+
     private Long numOfWorkers = 30L;
     private final int score = 15;
     private ArrayList<Person> workers = new ArrayList<>();
@@ -65,6 +67,14 @@ public class Defender extends Entity {
         return score;
     }
 
+    public int getDaysOfBeing() {
+        return daysOfBeing;
+    }
+
+    public void setDaysOfBeing(int daysOfBeing) {
+        this.daysOfBeing = daysOfBeing;
+    }
+
     @Override
     public void update() {
 
@@ -77,6 +87,6 @@ public class Defender extends Entity {
 
     @Override
     public double calculateScore() {
-        return score;
+        return Math.pow(score, daysOfBeing);
     }
 }

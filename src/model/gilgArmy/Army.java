@@ -10,6 +10,7 @@ public class Army extends Entity {
     private int blockId;
     private int level = 1;
     private double attackLevel = .2;
+    private int daysOfBeing = 1;
     private Long numOfWorkers = 100L;
     private final int score = 10;
     private User me;
@@ -41,6 +42,14 @@ public class Army extends Entity {
 
     public void setBlockId(int blockId) {
         this.blockId = blockId;
+    }
+
+    public int getDaysOfBeing() {
+        return daysOfBeing;
+    }
+
+    public void setDaysOfBeing(int daysOfBeing) {
+        this.daysOfBeing = daysOfBeing;
     }
 
     public int getId() {
@@ -91,7 +100,7 @@ public class Army extends Entity {
 
     @Override
     public double calculateScore() {
-        return score;
+        return Math.pow(score, daysOfBeing);
     }
 
     public void attack(User opponent, int blockId) {
