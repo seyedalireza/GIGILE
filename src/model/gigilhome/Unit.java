@@ -4,10 +4,25 @@ import model.Entity;
 import model.Person;
 import utils.Const;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Unit extends Entity{
     private final long capacity = Const.GILGE_PER_UNIT;
     private List<Person> personList = new ArrayList<>();
     private final int score = 2;
+
+    public long getCapacity() {
+        return capacity;
+    }
+
+    public List<Person> getPersonList() {
+        return personList;
+    }
+
+    public void setPersonList(List<Person> personList) {
+        this.personList = personList;
+    }
 
     public Unit() {
         personList.add(new Person());

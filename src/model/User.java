@@ -12,6 +12,8 @@ import model.gilgFun.Park;
 import org.w3c.dom.css.Counter;
 import utils.Const;
 
+import java.util.ArrayList;
+
 public class User {
     private String name;
     private double score = 0L;
@@ -156,7 +158,7 @@ public class User {
                     for (int i = 0; i < 100; i++) {
                         freePersons.get(i).work();
                     }
-                    Army army = new Army();
+                    Army army = new Army(this);
                     army.setId(entityCounter.getArmyNumber());
                     city.getBlock(blockId).getEntities().add(army);
                     return;
