@@ -2,8 +2,16 @@ package model;
 
 //not needed object
 public class Person extends Entity {
-    private float satisfactory = 1;
+    private double satisfactory = 1;
     private boolean isWorker = false;
+
+    public boolean isWorker() {
+        return isWorker;
+    }
+
+    public void setWorker(boolean worker) {
+        isWorker = worker;
+    }
 
     public void work(){
         isWorker = true;
@@ -26,5 +34,13 @@ public class Person extends Entity {
     @Override
     public double calculateScore() {
         return 1;
+    }
+
+    public double getSatisfactory() {
+        return satisfactory;
+    }
+
+    public void setSatisfactory(double satisfactory) {
+        this.satisfactory = satisfactory;
     }
 }

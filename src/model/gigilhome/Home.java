@@ -90,7 +90,7 @@ public class Home extends Entity {
         double sum = 0;
         for (Floor floor: floors){
             for (Unit unit: floor.getUnits())
-                sum += unit.getCapacity() * unit.getUpdate_coef();
+                sum += unit.getPersonList().size() * unit.getPersonList().get(0).getSatisfactory();
         }
         return sum;
     }

@@ -48,7 +48,7 @@ public class Floor extends Entity{
     private double calculatePersonScore(){
         double sum = 0;
         for (Unit unit: units){
-            sum += unit.getCapacity() * unit.getUpdate_coef();
+            sum += unit.getPersonList().size() * unit.getPersonList().get(0).getSatisfactory();
         }
         return sum;
     }

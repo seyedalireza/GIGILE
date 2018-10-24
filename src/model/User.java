@@ -6,9 +6,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model.gigilhome.Block;
+import model.gigilhome.Floor;
 import model.gigilhome.Home;
+import model.gigilhome.Unit;
+import model.gilgFun.Market;
+import model.gilgFun.Park;
 import org.w3c.dom.css.Counter;
 import utils.Const;
+
+import java.util.ArrayList;
 
 @Getter
 @Setter
@@ -103,11 +109,24 @@ public class User {
     }
 
     public void addMarket(int blockId) {
-
+        ArrayList<Person> freePersons = getFreePersons();
+        if(freePersons.size() >= 50) {
+            if (money >= 6000) {
+                money -= 6000;
+                for (int i = 0; i < 50; i++) {
+                    freePersons.get(i).work();
+                }
+                city.getBlock(blockId).getEntities().add(new Market());
+            }
+        }
     }
 
     public void addPark(int blockId) {
-
+        ArrayList<Person> freePersons = getFreePersons();
+            if (money >= 500) {
+                money -= 500;
+                city.getBlock(blockId).getEntities().add(new Park());
+        }
     }
 
     public void addArmy(int blockId) {
@@ -116,5 +135,45 @@ public class User {
 
     public void addDefender(int blockId) {
 
+    }
+
+    public ArrayList<Person> getFreePersons() {
+        ArrayList<Person>  people = new ArrayList<>();
+        for (Block block : city.getBlocks()) {
+            for (Entity entity : block.getEntities()) {
+                if (entity instanceof  Home) {
+                    for (Floor floor : ((Home) entity).getFloors()) {
+                        for (Unit unit : floor.getUnits()) {
+                            for (Person person : unit.getPersonList()) {
+                                if (!person.isWorker()) {
+                                    people.add(person);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return people;
+    }
+
+    public ArrayList<Person> getWorkerPersons() {
+        ArrayList<Person>  people = new ArrayList<>();
+        for (Block block : city.getBlocks()) {
+            for (Entity entity : block.getEntities()) {
+                if (entity instanceof  Home) {
+                    for (Floor floor : ((Home) entity).getFloors()) {
+                        for (Unit unit : floor.getUnits()) {
+                            for (Person person : unit.getPersonList()) {
+                                if (person.isWorker()) {
+                                    people.add(person);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return people;
     }
 }
