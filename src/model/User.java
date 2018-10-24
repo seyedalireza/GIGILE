@@ -80,7 +80,7 @@ public class User {
     }
 
     public void seeScore(){
-        System.out.print(baseScore + this.city.calculateScore());
+        System.out.printf("%.2f", baseScore + this.city.calculateScore());
     }
 
     public void addBlock() {

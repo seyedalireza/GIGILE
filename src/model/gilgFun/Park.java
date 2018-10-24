@@ -5,7 +5,7 @@ import utils.Const;
 
 public class Park extends Entity {
     private int blockId;
-    private final Long increaseScoreAmount = Const.START_MARKET_AMOUNT_SCORE;
+    private final double increaseScoreAmount = 1.1;
     private Long numOfWorkers = 0L;
     private final int score = 4;
 
@@ -25,7 +25,7 @@ public class Park extends Entity {
         this.id = id;
     }
 
-    public Long getIncreaseScoreAmount() {
+    public double getIncreaseScoreAmount() {
         return increaseScoreAmount;
     }
 
