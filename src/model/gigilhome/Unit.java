@@ -11,6 +11,22 @@ public class Unit extends Entity{
     private double update_coef = 1;
     private final int score = 2;
 
+    public long getCapacity() {
+        return capacity;
+    }
+
+    public double getUpdate_coef() {
+        return update_coef;
+    }
+
+    public void setUpdate_coef(double update_coef) {
+        this.update_coef = update_coef;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
     @Override
     public void update() {
     }

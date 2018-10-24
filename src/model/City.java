@@ -8,12 +8,17 @@ import java.util.ArrayList;
 public class City {
     private ArrayList<Block> blocks = new ArrayList<>();
 
+    public void setBlocks(ArrayList<Block> blocks) {
+        this.blocks = blocks;
+    }
+
     public ArrayList<Block> getBlocks() {
         return blocks;
     }
 
     public void remove(int blockId){
-        this.getBlocks().remove(this.getBlock(blockId));
+        Block block = this.getBlock(blockId);
+        this.getBlocks().remove(block);
     }
 
     public Block getBlock(int id){

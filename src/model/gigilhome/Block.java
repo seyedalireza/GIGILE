@@ -8,12 +8,25 @@ import model.Entity;
 
 import java.util.ArrayList;
 
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Block extends Entity {
     private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ArrayList<Entity> getEntities() {
+        return entities;
+    }
+
+    public void setEntities(ArrayList<Entity> entities) {
+        this.entities = entities;
+    }
+
     private ArrayList<Entity> entities = new ArrayList<>();
 
     @Override

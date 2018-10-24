@@ -20,6 +20,50 @@ public class Army extends Entity {
     private Long numOfWorkers = 100L;
     private final int score = 10;
 
+    public int getBlockId() {
+        return blockId;
+    }
+
+    public void setBlockId(int blockId) {
+        this.blockId = blockId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    public double getAttackLevel() {
+        return attackLevel;
+    }
+
+    public void setAttackLevel(double attackLevel) {
+        this.attackLevel = attackLevel;
+    }
+
+    public Long getNumOfWorkers() {
+        return numOfWorkers;
+    }
+
+    public void setNumOfWorkers(Long numOfWorkers) {
+        this.numOfWorkers = numOfWorkers;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
     @Override
     public void update() {
 

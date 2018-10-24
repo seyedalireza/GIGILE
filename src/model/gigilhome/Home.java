@@ -9,13 +9,53 @@ import utils.Const;
 
 import java.util.ArrayList;
 
-@Getter
-@Setter
-
-@AllArgsConstructor
-@NoArgsConstructor
 public class Home extends Entity {
     private int blockId;
+
+    public int getBlockId() {
+        return blockId;
+    }
+
+    public void setBlockId(int blockId) {
+        this.blockId = blockId;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getFloorNum() {
+        return floorNum;
+    }
+
+    public void setFloorNum(int floorNum) {
+        this.floorNum = floorNum;
+    }
+
+    public int getUnitNum() {
+        return unitNum;
+    }
+
+    public void setUnitNum(int unitNum) {
+        this.unitNum = unitNum;
+    }
+
+    public ArrayList<Floor> getFloors() {
+        return floors;
+    }
+
+    public void setFloors(ArrayList<Floor> floors) {
+        this.floors = floors;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
     private int id;
     private int floorNum = 0;
     private int unitNum = 0;
@@ -30,7 +70,7 @@ public class Home extends Entity {
 
     @Override
     public void remove(int id) {
-
+        //do nothing
     }
 
     @Override
@@ -38,8 +78,7 @@ public class Home extends Entity {
         double personScore = calculatePersonScore();
         double unitScore = calculateUnitScore();
         double floorScore = calculateFloorScore();
-
-        return personScore * 3 + unitScore * 2 + floorScore +
+        return personScore * 3 + unitScore * 2 + floorScore + score;
     }
 
     private double calculatePersonScore(){

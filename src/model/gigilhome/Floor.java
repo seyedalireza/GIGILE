@@ -10,6 +10,18 @@ public class Floor extends Entity{
     private ArrayList<Unit> units = new ArrayList<>();
     private final int score = 3;
 
+    public ArrayList<Unit> getUnits() {
+        return units;
+    }
+
+    public void setUnits(ArrayList<Unit> units) {
+        this.units = units;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
     public Floor(int unitNum) {
         for (int i = 0; i < unitNum; i++){
             units.add(new Unit());

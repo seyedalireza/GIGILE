@@ -8,10 +8,16 @@ import model.gigilhome.Block;
 
 import java.util.Scanner;
 
-@AllArgsConstructor
-@NoArgsConstructor
 public class Controller {
     private User[] users;
+
+    public User[] getUsers() {
+        return users;
+    }
+
+    public void setUsers(User[] users) {
+        this.users = users;
+    }
 
     public void cliControl(){
         Scanner scanner = new Scanner(System.in);
