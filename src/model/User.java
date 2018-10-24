@@ -181,6 +181,24 @@ public class User {
 
     }
 
+    public void updateMarket(int blockId , Market market) {
+        ArrayList<Person> freePersons = getFreePersons();
+        if (market.getLevel() < 3) {
+            if (freePersons.size() >= 20) {
+                if (money >= (market.getLevel() + 1) * 5000) {
+                    money -= (market.getLevel() + 1) * 5000;
+                    Block block = getCity().getBlock(blockId);
+                    market.setLevel(market.getLevel() + 1);
+                    market.setIncreaseScoreAmount(1 + .2 * market.getLevel());
+                    changeSatisfactory(block, (1 + market.getLevel() * .2) / (1 + (market.getLevel() - 1) * .2));
+                    return;
+                }
+            }
+        }
+        System.out.println("not possible");
+
+    }
+
     private void changeSatisfactory(Block block, double percent) {
         for (Entity entity: block.getEntities()) {
             if (entity instanceof Home) {
