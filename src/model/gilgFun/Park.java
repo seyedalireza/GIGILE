@@ -1,13 +1,17 @@
 package model.gilgFun;
 
 import model.Entity;
+import model.Person;
 import utils.Const;
+
+import java.util.ArrayList;
 
 public class Park extends Entity {
     private int blockId;
     private final double increaseScoreAmount = 1.1;
     private Long numOfWorkers = 0L;
     private final int score = 4;
+
 
     public int getBlockId() {
         return blockId;

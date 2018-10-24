@@ -1,6 +1,9 @@
 package model.gilgArmy;
 
 import model.Entity;
+import model.Person;
+
+import java.util.ArrayList;
 
 public class Defender extends Entity {
     private int blockId;
@@ -8,6 +11,15 @@ public class Defender extends Entity {
     private double defendLevel = .2;
     private Long numOfWorkers = 30L;
     private final int score = 15;
+    private ArrayList<Person> workers = new ArrayList<>();
+
+    public ArrayList<Person> getWorkers() {
+        return workers;
+    }
+
+    public void setWorkers(ArrayList<Person> workers) {
+        this.workers = workers;
+    }
 
     public int getBlockId() {
         return blockId;

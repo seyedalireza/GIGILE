@@ -1,7 +1,10 @@
 package model.gilgFun;
 
 import model.Entity;
+import model.Person;
 import utils.Const;
+
+import java.util.ArrayList;
 
 public class Market extends Entity {
     private int blockId;
@@ -9,6 +12,15 @@ public class Market extends Entity {
     private Long numOfWorkers = 50L;
     private int level = 1;
     private final int score = 5;
+    private ArrayList<Person> workers = new ArrayList<>();
+
+    public ArrayList<Person> getWorkers() {
+        return workers;
+    }
+
+    public void setWorkers(ArrayList<Person> workers) {
+        this.workers = workers;
+    }
 
     public int getBlockId() {
         return blockId;

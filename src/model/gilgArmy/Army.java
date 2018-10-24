@@ -1,7 +1,10 @@
 package model.gilgArmy;
 
 import model.Entity;
+import model.Person;
 import model.User;
+
+import java.util.ArrayList;
 
 public class Army extends Entity {
     private int blockId;
@@ -10,6 +13,15 @@ public class Army extends Entity {
     private Long numOfWorkers = 100L;
     private final int score = 10;
     private User me;
+    private ArrayList<Person> workers = new ArrayList<>();
+
+    public ArrayList<Person> getWorkers() {
+        return workers;
+    }
+
+    public void setWorkers(ArrayList<Person> workers) {
+        this.workers = workers;
+    }
 
     public User getMe() {
         return me;

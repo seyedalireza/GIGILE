@@ -164,10 +164,12 @@ public class User {
         if(freePersons.size() >= 50) {
             if (money >= 6000) {
                 money -= 6000;
+                Market market = new Market();
                 for (int i = 0; i < 50; i++) {
                     freePersons.get(i).work();
+                    market.getWorkers().add(freePersons.get(i));
+
                 }
-                Market market = new Market();
                 market.setId(city.getBlock(blockId).getEntityCounter().getMarketNumber());
                 printId(market);
                 Block block = city.getBlock(blockId);
@@ -187,6 +189,8 @@ public class User {
             if (freePersons.size() >= 20) {
                 for (int i = 0; i < 20; i++) {
                     freePersons.get(i).work();
+                    market.getWorkers().add(freePersons.get(i));
+
                 }
                 if (money >= (market.getLevel() + 1) * 5000) {
                     money -= (market.getLevel() + 1) * 5000;
@@ -238,10 +242,12 @@ public class User {
             if(freePersons.size() >= 100) {
                 if (money >= 15000) {
                     money -= 15000;
+                    Army army = new Army(this);
                     for (int i = 0; i < 100; i++) {
                         freePersons.get(i).work();
+                        army.getWorkers().add(freePersons.get(i));
+
                     }
-                    Army army = new Army(this);
                     army.setId(city.getBlock(blockId).getEntityCounter().getArmyNumber());
                     printId(army);
                     city.getBlock(blockId).getEntities().add(army);
@@ -259,6 +265,7 @@ public class User {
                 if (money >= 20000) {
                     for (int i = 0; i < 10; i++) {
                         freePersons.get(i).work();
+                        army.getWorkers().add(freePersons.get(i));
                     }
                     army.setLevel(army.getLevel()+1);
                     army.setAttackLevel(army.getLevel() * .2);
@@ -338,25 +345,25 @@ public class User {
         return people;
     }
 
-    public ArrayList<Person> getWorkerPersons() {
-        ArrayList<Person>  people = new ArrayList<>();
-        for (Block block : city.getBlocks()) {
-            for (Entity entity : block.getEntities()) {
-                if (entity instanceof  Home) {
-                    for (Floor floor : ((Home) entity).getFloors()) {
-                        for (Unit unit : floor.getUnits()) {
-                            for (Person person : unit.getPersonList()) {
-                                if (person.isWorker()) {
-                                    people.add(person);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        return people;
-    }
+//    public ArrayList<Person> getWorkerPersons() {
+//        ArrayList<Person>  people = new ArrayList<>();
+//        for (Block block : city.getBlocks()) {
+//            for (Entity entity : block.getEntities()) {
+//                if (entity instanceof  Home) {
+//                    for (Floor floor : ((Home) entity).getFloors()) {
+//                        for (Unit unit : floor.getUnits()) {
+//                            for (Person person : unit.getPersonList()) {
+//                                if (person.isWorker()) {
+//                                    people.add(person);
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//        return people;
+//    }
 
     public void increaseMoney(int value) {
         this.money += value;
