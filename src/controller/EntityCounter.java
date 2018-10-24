@@ -6,6 +6,14 @@ public class EntityCounter {
     private int entityNumber = 0;
     private int personNumber;
 
+    public void setBlockNumber(int blockNumber) {
+        this.blockNumber = blockNumber;
+    }
+
+    public void setEntityNumber(int entityNumber) {
+        this.entityNumber = entityNumber;
+    }
+
     public EntityCounter() {
     }
 

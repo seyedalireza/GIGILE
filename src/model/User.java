@@ -95,6 +95,18 @@ public class User {
         System.out.println("not possible");
     }
 
+    public void removeBlock(int blockId) {
+        if (money >=1000) {
+            if (city.getBlock(blockId).getId() == (entityCounter.getBlockNumber()-1)) {
+                entityCounter.setBlockNumber(city.getBlock(blockId).getId() - 1);
+            }
+            city.getBlocks().remove(city.getBlock(blockId));
+            money+= 500;
+            return;
+        }
+        System.out.println("not possible");
+    }
+
     public void updateBlock(int blockID) {
         if (city.getBlock(blockID).getLevel() <= 2) {
             if (money >= (500 ^ (city.getBlock(blockID).getLevel()))) {
@@ -344,26 +356,6 @@ public class User {
         }
         return people;
     }
-
-//    public ArrayList<Person> getWorkerPersons() {
-//        ArrayList<Person>  people = new ArrayList<>();
-//        for (Block block : city.getBlocks()) {
-//            for (Entity entity : block.getEntities()) {
-//                if (entity instanceof  Home) {
-//                    for (Floor floor : ((Home) entity).getFloors()) {
-//                        for (Unit unit : floor.getUnits()) {
-//                            for (Person person : unit.getPersonList()) {
-//                                if (person.isWorker()) {
-//                                    people.add(person);
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//        return people;
-//    }
 
     public void increaseMoney(int value) {
         this.money += value;
