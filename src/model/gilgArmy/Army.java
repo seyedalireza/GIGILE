@@ -5,7 +5,6 @@ import model.User;
 
 public class Army extends Entity {
     private int blockId;
-    private int id;
     private int level = 1;
     private double attackLevel = .2;
     private Long numOfWorkers = 100L;

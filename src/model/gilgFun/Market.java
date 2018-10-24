@@ -5,7 +5,6 @@ import utils.Const;
 
 public class Market extends Entity {
     private int blockId;
-    private int id;
     private Long increaseScoreAmount = Const.START_MARKET_AMOUNT_SCORE;
     private Long numOfWorkers = 50L;
     private int level = 1;

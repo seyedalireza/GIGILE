@@ -4,7 +4,6 @@ import model.Entity;
 
 public class Defender extends Entity {
     private int blockId;
-    private int id;
     private int level = 1;
     private double defendLevel = .2;
     private Long numOfWorkers = 30L;

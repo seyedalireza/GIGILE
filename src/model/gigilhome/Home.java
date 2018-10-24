@@ -7,7 +7,6 @@ import java.util.ArrayList;
 
 public class Home extends Entity {
     private int blockId;
-    private int id;
 
     public Home(int floorNum, int unitNum) {
         this.floorNum = floorNum;
