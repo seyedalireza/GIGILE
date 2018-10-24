@@ -125,18 +125,22 @@ public class User {
         System.out.println("not possible");
     }
     public void updateHome(int unitId , int blockId , boolean unit , boolean floor) {
-        if(floor && unit) {
-            if (money >= (getHome(blockId , unitId).getFloorNum()*50+getHome(blockId , unitId).getUnitNum() + 300)) {
-                getHome(blockId , unitId).increaseFloor(1);
-                getHome(blockId , unitId).increaseUnit(1);
+        Home home = getHome(blockId, unitId);
+        if(floor && unit && home.getFloorNum() < 6 && home.getUnitNum() < 4) {
+            if (money >= (home.getFloorNum()*50+ home.getUnitNum() + 300)) {
+                home.increaseFloor(1);
+                home.increaseUnit(1);
+                return;
             }
-        } else if (floor) {
-            if (money >= (getHome(blockId , unitId).getUnitNum() + 300)) {
-                getHome(blockId , unitId).increaseFloor(1);
+        } else if (floor && home.getFloorNum() < 6 ) {
+            if (money >= (home.getUnitNum() + 300)) {
+                home.increaseFloor(1);
+                return;
             }
-        } else if (unit) {
-            if (money >= (getHome(blockId , unitId).getFloorNum()*50)) {
-                getHome(blockId , unitId).increaseUnit(1);
+        } else if (unit && home.getUnitNum() < 4) {
+            if (money >= (home.getFloorNum()*50)) {
+                home.increaseUnit(1);
+                return;
             }
         }
             System.out.println("not possible");
