@@ -87,7 +87,7 @@ public class Controller {
     private void addHandler(String[] commandParts){
         switch (commandParts[0]){
             case "block":
-                //TODO
+
                 break;
             case "home":
                 //TODO
