@@ -1,11 +1,9 @@
 package model.gigilhome;
 
-import lombok.Getter;
 import model.Entity;
 
 import java.util.ArrayList;
 
-@Getter
 public class Floor extends Entity{
     private ArrayList<Unit> units = new ArrayList<>();
     private final int score = 3;

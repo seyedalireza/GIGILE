@@ -1,7 +1,5 @@
 package controller;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import model.Entity;
 import model.User;
 import model.gigilhome.Block;
