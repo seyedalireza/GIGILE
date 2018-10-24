@@ -40,13 +40,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="8" />
-          <entry key="java" value="5846" />
+          <entry key="java" value="5908" />
           <entry key="txt" value="232" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5846" />
+          <entry key="JAVA" value="5908" />
           <entry key="PLAIN_TEXT" value="240" />
         </counts>
       </usages-collector>
@@ -70,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="299" column="21" selection-start-line="299" selection-start-column="21" selection-end-line="299" selection-end-column="21" />
+            <state relative-caret-position="740">
+              <caret line="262" column="38" selection-start-line="262" selection-start-column="38" selection-end-line="262" selection-end-column="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#655#656#0" expanded="true" />
@@ -84,10 +84,10 @@
                 <element signature="e#1303#1304#0" expanded="true" />
                 <element signature="e#1593#1594#0" expanded="true" />
                 <element signature="e#1665#1666#0" expanded="true" />
-                <element signature="e#7959#7960#0" expanded="true" />
-                <element signature="e#8004#8005#0" expanded="true" />
-                <element signature="e#10332#10333#0" expanded="true" />
-                <element signature="e#10367#10368#0" expanded="true" />
+                <element signature="e#8940#8941#0" expanded="true" />
+                <element signature="e#8985#8986#0" expanded="true" />
+                <element signature="e#12292#12293#0" expanded="true" />
+                <element signature="e#12327#12328#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -375,9 +375,10 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/misc.xml</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/controller/Controller.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/User.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/gilgFun/Market.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/utils/Const.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/model/gilgFun/Park.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -516,7 +517,7 @@
       <workItem from="1540357602778" duration="158000" />
       <workItem from="1540392911864" duration="11723000" />
       <workItem from="1540410928562" duration="3292000" />
-      <workItem from="1540414258327" duration="1910000" />
+      <workItem from="1540414258327" duration="2313000" />
     </task>
     <task id="LOCAL-00001" summary="Counter class added">
       <created>1540393935312</created>
@@ -672,14 +673,21 @@
       <option name="project" value="LOCAL" />
       <updated>1540415955906</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="update defender and army">
+      <created>1540416230486</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1540416230486</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24646000" />
+    <option name="totallyTimeSpent" value="25049000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="742" extended-state="7" />
+    <frame x="0" y="0" width="1366" height="742" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27643505" />
@@ -896,8 +904,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="299" column="21" selection-start-line="299" selection-start-column="21" selection-end-line="299" selection-end-column="21" />
+        <state relative-caret-position="740">
+          <caret line="262" column="38" selection-start-line="262" selection-start-column="38" selection-end-line="262" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#655#656#0" expanded="true" />
@@ -910,10 +918,10 @@
             <element signature="e#1303#1304#0" expanded="true" />
             <element signature="e#1593#1594#0" expanded="true" />
             <element signature="e#1665#1666#0" expanded="true" />
-            <element signature="e#7959#7960#0" expanded="true" />
-            <element signature="e#8004#8005#0" expanded="true" />
-            <element signature="e#10332#10333#0" expanded="true" />
-            <element signature="e#10367#10368#0" expanded="true" />
+            <element signature="e#8940#8941#0" expanded="true" />
+            <element signature="e#8985#8986#0" expanded="true" />
+            <element signature="e#12292#12293#0" expanded="true" />
+            <element signature="e#12327#12328#0" expanded="true" />
           </folding>
         </state>
       </provider>

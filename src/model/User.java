@@ -260,8 +260,9 @@ public class User {
                     for (int i = 0; i < 10; i++) {
                         freePersons.get(i).work();
                     }
-//                    money -= (market.getLevel() + 1) * 5000;
-//                    Block block = getCity().getBlock(blockId);
+                    army.setLevel(army.getLevel()+1);
+                    army.setAttackLevel(army.getLevel() * .2);
+                    money -= 20000;//                    Block block = getCity().getBlock(blockId);
 //                    market.setLevel(market.getLevel() + 1);
 //                    market.setIncreaseScoreAmount(1 + .2 * market.getLevel());
 //                    changeSatisfactory(block, (1 + market.getLevel() * .2) / (1 + (market.getLevel() - 1) * .2));
@@ -303,7 +304,9 @@ public class User {
                     for (int i = 0; i < 0; i++) {
                         freePersons.get(i).work();
                     }
-//                    money -= (market.getLevel() + 1) * 5000;
+                    defender.setLevel(defender.getLevel()+1);
+                    defender.setDefendLevel(defender.getLevel() * .2);
+                    money -= 5000;
 //                    Block block = getCity().getBlock(blockId);
 //                    market.setLevel(market.getLevel() + 1);
 //                    market.setIncreaseScoreAmount(1 + .2 * market.getLevel());
