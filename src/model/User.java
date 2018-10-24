@@ -185,6 +185,9 @@ public class User {
         ArrayList<Person> freePersons = getFreePersons();
         if (market.getLevel() < 3) {
             if (freePersons.size() >= 20) {
+                for (int i = 0; i < 20; i++) {
+                    freePersons.get(i).work();
+                }
                 if (money >= (market.getLevel() + 1) * 5000) {
                     money -= (market.getLevel() + 1) * 5000;
                     Block block = getCity().getBlock(blockId);
@@ -196,7 +199,6 @@ public class User {
             }
         }
         System.out.println("not possible");
-
     }
 
     private void changeSatisfactory(Block block, double percent) {
@@ -249,6 +251,26 @@ public class User {
         }
         System.out.println("not possible");
     }
+
+    public void updateArmy(int blockId , Market market) {
+        ArrayList<Person> freePersons = getFreePersons();
+        if (market.getLevel() < 5) {
+            if (freePersons.size() >= 10) {
+                if (money >= 20000) {
+                    for (int i = 0; i < 10; i++) {
+                        freePersons.get(i).work();
+                    }
+//                    money -= (market.getLevel() + 1) * 5000;
+//                    Block block = getCity().getBlock(blockId);
+//                    market.setLevel(market.getLevel() + 1);
+//                    market.setIncreaseScoreAmount(1 + .2 * market.getLevel());
+//                    changeSatisfactory(block, (1 + market.getLevel() * .2) / (1 + (market.getLevel() - 1) * .2));
+                    return;
+                }
+            }
+        }
+        System.out.println("not possible");
+    }
     private void printId(Entity entity) {
         System.out.println(entity.id);
     }
@@ -266,6 +288,26 @@ public class User {
                     defender.setId(city.getBlock(blockId).getEntityCounter().getDefenderNumber());
                     city.getBlock(blockId).getEntities().add(defender);
                     printId(defender);
+                    return;
+                }
+            }
+        }
+        System.out.println("not possible");
+    }
+
+    public void updateDefender(int blockId , Market market) {
+        ArrayList<Person> freePersons = getFreePersons();
+        if (market.getLevel() < 5) {
+            if (freePersons.size() >= 0) {
+                if (money >= 5000) {
+                    for (int i = 0; i < 0; i++) {
+                        freePersons.get(i).work();
+                    }
+//                    money -= (market.getLevel() + 1) * 5000;
+//                    Block block = getCity().getBlock(blockId);
+//                    market.setLevel(market.getLevel() + 1);
+//                    market.setIncreaseScoreAmount(1 + .2 * market.getLevel());
+//                    changeSatisfactory(block, (1 + market.getLevel() * .2) / (1 + (market.getLevel() - 1) * .2));
                     return;
                 }
             }
