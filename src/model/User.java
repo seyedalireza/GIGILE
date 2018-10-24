@@ -85,11 +85,12 @@ public class User {
     }
 
     public void addBlock() {
-        if (money >= 1000) {
+        if (money >=1000) {
             Block block = new Block();
             block.setId(entityCounter.getBlockNumber());
             city.getBlocks().add(block);
-            money -= 1000;
+            printId(block);
+            money-= 1000;
             return;
         }
         System.out.println("not possible");
@@ -103,6 +104,7 @@ public class User {
                     money -= cost;
                     Home home = new Home(floorSize, unitSize);
                     home.setId(entityCounter.getHomeNumber());
+                    printId(home);
                     city.getBlock(blockId).getEntities().add(home);
                     return;
                 }
@@ -122,6 +124,7 @@ public class User {
                 }
                 Market market = new Market();
                 market.setId(entityCounter.getMarketNumber());
+                printId(market);
                 city.getBlock(blockId).getEntities().add(market);
                 return;
             }
@@ -138,6 +141,7 @@ public class User {
                 money -= 500;
                 Park park = new Park();
                 park.setId(entityCounter.getParkNumber());
+                printId(park);
                 city.getBlock(blockId).getEntities().add(park);
                 return;
             }
@@ -160,12 +164,16 @@ public class User {
                     }
                     Army army = new Army(this);
                     army.setId(entityCounter.getArmyNumber());
+                    printId(army);
                     city.getBlock(blockId).getEntities().add(army);
                     return;
                 }
             }
         }
         System.out.println("not possible");
+    }
+    private void printId(Entity entity) {
+        System.out.println(entity.id);
     }
 
     public void addDefender(int blockId) {
@@ -180,6 +188,7 @@ public class User {
                     Defender defender = new Defender();
                     defender.setId(entityCounter.getDefenderNumber());
                     city.getBlock(blockId).getEntities().add(defender);
+                    printId(defender);
                     return;
                 }
             }
