@@ -236,4 +236,8 @@ public class User {
         }
         return people;
     }
+
+    public void increaseMoney(int value) {
+        this.money += value;
+    }
 }
