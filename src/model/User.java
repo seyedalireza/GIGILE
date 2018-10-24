@@ -98,7 +98,7 @@ public class User {
 
     public void addHome(int floorSize , int blockId , int unitSize) {
         if (hasCapacityBlock(blockId)) {
-            if (floorSize >= 3 && floorSize <= 6 && unitSize >= 3 && unitSize <= 4) {
+            if (floorSize >= 3 && floorSize <= 6 && unitSize >= 1 && unitSize <= 4) {
                 int cost = (floorSize * unitSize) * 100 + floorSize * 300 + 700;
                 if (money >= cost) {
                     money -= cost;
@@ -150,6 +150,7 @@ public class User {
     }
 
     public boolean hasCapacityBlock(int blockId) {
+        if (city.getBlock(blockId) == null) {return false;}
         return city.getBlock(blockId).getEntities().size() < city.getBlock(blockId).getCapacity();
     }
 
