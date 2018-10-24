@@ -24,7 +24,8 @@ public class Controller {
         String[] restCommandParts;
         User opponent, currentPlayer;
 
-        while(!command.equals("Yield")){
+        while(!command.equals("yield")){
+            command = command.toLowerCase();
             commandParts = command.split(" ");
             switch (commandParts[0]){
                 case "add":
@@ -74,6 +75,7 @@ public class Controller {
                     changeTurn();
                     break;
             }
+            command = scanner.nextLine();
         }
         if (users[0].isMyTurn()){
             System.out.println(users[0].getCity().calculateScore()

@@ -19,6 +19,10 @@ public class User {
     private double score = 0L;
     private double baseScore;
     private EntityCounter entityCounter = new EntityCounter();
+    private Long money = Const.START_MONEY;
+    private City city = new City();
+    private boolean isMyTurn = false;
+
 
     public double getBaseScore() {
         return baseScore;
@@ -27,10 +31,6 @@ public class User {
     public void setBaseScore(double baseScore) {
         this.baseScore = baseScore;
     }
-
-    private Long money = Const.START_MONEY;
-    private City city = new City();
-    private boolean isMyTurn = false;
 
     public String getName() {
         return name;
@@ -85,11 +85,11 @@ public class User {
     }
 
     public void addBlock() {
-        if (money >=1000) {
+        if (money >= 1000) {
             Block block = new Block();
             block.setId(entityCounter.getBlockNumber());
             city.getBlocks().add(block);
-            money-= 1000;
+            money -= 1000;
             return;
         }
         System.out.println("not possible");
