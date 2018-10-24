@@ -16,6 +16,11 @@ public class Unit extends Entity{
     }
 
     @Override
+    public void remove(int id) {
+
+    }
+
+    @Override
     public double calculateScore() {
         return capacity*update_coef + score;
     }

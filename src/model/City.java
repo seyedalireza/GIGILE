@@ -1,6 +1,7 @@
 package model;
 
 import model.gigilhome.Block;
+import model.gilgArmy.Army;
 
 import java.util.ArrayList;
 
@@ -22,5 +23,27 @@ public class City {
             }
         }
         return null;
+    }
+
+    public void attack(User opponent, int blockId) {
+        Army army = null;
+        for (Block block: blocks) {
+            for (Entity entity: block.getEntities())
+                if (entity instanceof Army)
+                    army = (Army) entity;
+        }
+        assert army != null;
+        army.attack(opponent, blockId);
+    }
+
+    public void loot(User opponent, int blockId){
+        Army army = null;
+        for (Block block: blocks) {
+            for (Entity entity: block.getEntities())
+                if (entity instanceof Army)
+                    army = (Army) entity;
+        }
+        assert army != null;
+        army.loot(opponent, blockId);
     }
 }

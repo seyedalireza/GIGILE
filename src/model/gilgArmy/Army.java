@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import model.Entity;
+import model.User;
 
 @Getter
 @Setter
@@ -25,7 +26,20 @@ public class Army extends Entity {
     }
 
     @Override
+    public void remove(int id) {
+
+    }
+
+    @Override
     public double calculateScore() {
         return score;
+    }
+
+    public void attack(User opponent, int blockId) {
+
+    }
+
+    public void loot(User opponent, int blockId){
+
     }
 }

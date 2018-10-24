@@ -1,11 +1,15 @@
 package controller;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import model.Entity;
 import model.User;
 import model.gigilhome.Block;
 
 import java.util.Scanner;
 
+@AllArgsConstructor
+@NoArgsConstructor
 public class Controller {
     private User[] users;
 
@@ -14,6 +18,7 @@ public class Controller {
         String command = scanner.nextLine();
         String[] commandParts;
         String[] restCommandParts;
+        User opponent, currentPlayer;
 
         while(!command.equals("Yield")){
             commandParts = command.split(" ");
@@ -38,12 +43,22 @@ public class Controller {
                     removeHandler(restCommandParts);
                     break;
                 case "attack":
-                    //TODO
-
+                    opponent = users[0];
+                    currentPlayer = users[1];
+                    if (opponent.isMyTurn()) {
+                        opponent = users[1];
+                        currentPlayer = users[0];
+                    }
+                    currentPlayer.getCity().attack(opponent, Integer.parseInt(commandParts[1]));
                     break;
                 case "loot":
-                    //TODO
-
+                    opponent = users[0];
+                    currentPlayer = users[1];
+                    if (opponent.isMyTurn()) {
+                        opponent = users[1];
+                        currentPlayer = users[0];
+                    }
+                    currentPlayer.getCity().loot(opponent, Integer.parseInt(commandParts[1]));
                     break;
                 case "see":
                     restCommandParts = new String[commandParts.length - 1];
@@ -94,7 +109,7 @@ public class Controller {
         if (user.getCity().getBlock(blockId) == null)
             System.out.println("not possible");
         else{
-            Block block = user.getCity().getBlocks(blockId);
+            Block block = user.getCity().getBlock(blockId);
             if (commandParts.length == 1){
                 block.update();
             }else{
@@ -113,7 +128,7 @@ public class Controller {
         if (user.getCity().getBlock(blockId) == null)
             System.out.println("not possible");
         else{
-            Block block = user.getCity().getBlocks(blockId);
+            Block block = user.getCity().getBlock(blockId);
             if (commandParts.length == 1){
                 user.getCity().remove(blockId);
             }else{
