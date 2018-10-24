@@ -9,6 +9,8 @@ import model.gigilhome.Block;
 import model.gigilhome.Floor;
 import model.gigilhome.Home;
 import model.gigilhome.Unit;
+import model.gilgArmy.Army;
+import model.gilgArmy.Defender;
 import model.gilgFun.Market;
 import model.gilgFun.Park;
 import org.w3c.dom.css.Counter;
@@ -94,21 +96,28 @@ public class User {
         if (money >=1000) {
             Block block = new Block();
             block.setId(entityCounter.getBlockNumber());
+            city.getBlocks().add(block);
             money-= 1000;
         }
         System.out.println("not possible");
     }
 
     public void addHome(int floorSize , int blockId , int unitSize) {
+        if (hasCapacityBlock(blockId)) {
         int cost = (floorSize*unitSize)*100+floorSize*300+700;
         if (money >= cost) {
             money -= cost;
-            city.getBlock(blockId).getEntities().add(new Home(floorSize , unitSize));
+            Home home = new Home(floorSize, unitSize);
+            home.setId(entityCounter.getHomeNumber());
+            city.getBlock(blockId).getEntities().add(home);
+            return;
+        }
         }
         System.out.println("not possible");
     }
 
     public void addMarket(int blockId) {
+        if(hasCapacityBlock(blockId)) {
         ArrayList<Person> freePersons = getFreePersons();
         if(freePersons.size() >= 50) {
             if (money >= 6000) {
@@ -116,25 +125,71 @@ public class User {
                 for (int i = 0; i < 50; i++) {
                     freePersons.get(i).work();
                 }
-                city.getBlock(blockId).getEntities().add(new Market());
+                Market market = new Market();
+                market.setId(entityCounter.getMarketNumber());
+                city.getBlock(blockId).getEntities().add(market);
+                return;
             }
         }
+        }
+        System.out.println("not possible");
+
     }
 
     public void addPark(int blockId) {
-        ArrayList<Person> freePersons = getFreePersons();
+        if (hasCapacityBlock(blockId)) {
+            ArrayList<Person> freePersons = getFreePersons();
             if (money >= 500) {
                 money -= 500;
-                city.getBlock(blockId).getEntities().add(new Park());
+                Park park = new Park();
+                park.setId(entityCounter.getParkNumber());
+                city.getBlock(blockId).getEntities().add(park);
+                return;
+            }
         }
+        System.out.println("not possible");
+    }
+
+    public boolean hasCapacityBlock(int blockId) {
+        return city.getBlock(blockId).getEntities().size() < city.getBlock(blockId).getCapacity();
     }
 
     public void addArmy(int blockId) {
-
+        if(hasCapacityBlock(blockId)) {
+            ArrayList<Person> freePersons = getFreePersons();
+            if(freePersons.size() >= 100) {
+                if (money >= 15000) {
+                    money -= 15000;
+                    for (int i = 0; i < 100; i++) {
+                        freePersons.get(i).work();
+                    }
+                    Army army = new Army();
+                    army.setId(entityCounter.getArmyNumber());
+                    city.getBlock(blockId).getEntities().add(army);
+                    return;
+                }
+            }
+        }
+        System.out.println("not possible");
     }
 
     public void addDefender(int blockId) {
-
+        if(hasCapacityBlock(blockId)) {
+            ArrayList<Person> freePersons = getFreePersons();
+            if(freePersons.size() >= 30) {
+                if (money >= 10000) {
+                    money -= 10000;
+                    for (int i = 0; i < 30; i++) {
+                        freePersons.get(i).work();
+                    }
+                    Defender defender = new Defender();
+                    defender.setId(entityCounter.getDefenderNumber());
+                    city.getBlock(blockId).getEntities().add(defender);
+                    return;
+                }
+            }
+        }
+        System.out.println("not possible");
     }
 
     public ArrayList<Person> getFreePersons() {

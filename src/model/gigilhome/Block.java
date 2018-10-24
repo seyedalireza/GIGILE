@@ -56,4 +56,12 @@ public class Block extends Entity {
         }
         return null;
     }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
 }
