@@ -78,11 +78,14 @@ public class Controller {
             command = scanner.nextLine();
         }
         if (users[0].isMyTurn()){
-            System.out.println(users[0].getCity().calculateScore()
-                    + " " + users[1].getCity().calculateScore());
-        }else
-            System.out.println(users[0].getCity().calculateScore()
-                    + " " + users[1].getCity().calculateScore());
+            users[0].seeScore();
+            System.out.print(" ");
+            users[1].seeScore();
+        }else{
+            users[1].seeScore();
+            System.out.print(" ");
+            users[0].seeScore();
+        }
     }
 
     private void changeTurn(){
@@ -106,6 +109,10 @@ public class Controller {
                 current.addBlock();
                 break;
             case "home":
+                if (commandParts.length < 4) {
+                    System.out.println("not possible");
+                    break;
+                }
                 current.addHome(Integer.parseInt(commandParts[2]), Integer.parseInt(commandParts[1]),
                         Integer.parseInt(commandParts[3]));
                 break;
