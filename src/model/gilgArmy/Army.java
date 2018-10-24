@@ -104,6 +104,8 @@ public class Army extends Entity {
             }
             if (!hasDefender) {
                 me.setMoney(me.getMoney() + opponent.getCity().getBlock(blockId).getEntities().size()*500);
-        }
+        } else {
+                System.out.println("not possible");
+            }
     }
 }

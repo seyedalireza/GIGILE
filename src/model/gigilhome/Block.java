@@ -1,11 +1,13 @@
 package model.gigilhome;
 
+import controller.EntityCounter;
 import model.Entity;
 
 import java.util.ArrayList;
 
 public class Block extends Entity {
     private int capacity = 15;
+    private EntityCounter counter = new EntityCounter();
     public int getId() {
         return id;
     }
@@ -58,5 +60,9 @@ public class Block extends Entity {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public EntityCounter getEntityCounter() {
+        return counter;
     }
 }

@@ -9,7 +9,6 @@ import model.gilgArmy.Army;
 import model.gilgArmy.Defender;
 import model.gilgFun.Market;
 import model.gilgFun.Park;
-import org.w3c.dom.css.Counter;
 import utils.Const;
 
 import java.util.ArrayList;
@@ -96,6 +95,19 @@ public class User {
         System.out.println("not possible");
     }
 
+    public void updateBlock(int blockID) {
+        if (city.getBlock(blockID).getLevel() <= 2) {
+            if (money >= (500 ^ (city.getBlock(blockID).getLevel()))) {
+                Block block = city.getBlock(blockID);
+                block.setLevel(block.getLevel() + 1);
+                block.setCapacity(block.getCapacity() + 5);
+                money -= (500 ^ (city.getBlock(blockID).getLevel()));
+                return;
+            }
+        }
+        System.out.println("not possible");
+    }
+
     public void addHome(int floorSize , int blockId , int unitSize) {
         if (hasCapacityBlock(blockId)) {
             if (floorSize >= 3 && floorSize <= 6 && unitSize >= 1 && unitSize <= 4) {
@@ -103,7 +115,7 @@ public class User {
                 if (money >= cost) {
                     money -= cost;
                     Home home = new Home(floorSize, unitSize);
-                    home.setId(entityCounter.getHomeNumber());
+                    home.setId(city.getBlock(blockId).getEntityCounter().getHomeNumber());
                     printId(home);
                     city.getBlock(blockId).getEntities().add(home);
                     return;
@@ -111,6 +123,38 @@ public class User {
             }
         }
         System.out.println("not possible");
+    }
+    public void addHome(int unitId , int blockId , boolean unit , boolean floor) {
+//            if (floorSize >= 3 && floorSize <= 6 && unitSize >= 1 && unitSize <= 4) {
+//                int cost = (floorSize * unitSize) * 100 + floorSize * 300 + 700;
+//                if (money >= cost) {
+//                    money -= cost;
+//                    Home home = new Home(floorSize, unitSize);
+//                    home.setId(entityCounter.getHomeNumber());
+//                    printId(home);
+//                    city.getBlock(blockId).getEntities().add(home);
+//                    return;
+//                }
+//        if(floor && unit) {
+//            if (money >= 1)
+//        } else if (floor) {
+//
+//        } else if (unit) {
+//
+//        }
+            System.out.println("not possible");
+    }
+
+    private Home getHome(int blockId,int id) {
+        Block block = city.getBlock(blockId);
+        for (Entity entity : block.getEntities()) {
+                if (entity instanceof  Home) {
+                    if (entity.getId() == id ) {
+                        return (Home) entity;
+                    }
+                }
+            }
+            return null;
     }
 
     public void addMarket(int blockId) {
@@ -123,7 +167,7 @@ public class User {
                     freePersons.get(i).work();
                 }
                 Market market = new Market();
-                market.setId(entityCounter.getMarketNumber());
+                market.setId(city.getBlock(blockId).getEntityCounter().getMarketNumber());
                 printId(market);
                 city.getBlock(blockId).getEntities().add(market);
                 return;
@@ -140,7 +184,7 @@ public class User {
             if (money >= 500) {
                 money -= 500;
                 Park park = new Park();
-                park.setId(entityCounter.getParkNumber());
+                park.setId(city.getBlock(blockId).getEntityCounter().getParkNumber());
                 printId(park);
                 city.getBlock(blockId).getEntities().add(park);
                 return;
@@ -164,7 +208,7 @@ public class User {
                         freePersons.get(i).work();
                     }
                     Army army = new Army(this);
-                    army.setId(entityCounter.getArmyNumber());
+                    army.setId(city.getBlock(blockId).getEntityCounter().getArmyNumber());
                     printId(army);
                     city.getBlock(blockId).getEntities().add(army);
                     return;
@@ -187,7 +231,7 @@ public class User {
                         freePersons.get(i).work();
                     }
                     Defender defender = new Defender();
-                    defender.setId(entityCounter.getDefenderNumber());
+                    defender.setId(city.getBlock(blockId).getEntityCounter().getDefenderNumber());
                     city.getBlock(blockId).getEntities().add(defender);
                     printId(defender);
                     return;
