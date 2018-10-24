@@ -80,7 +80,15 @@ public class Army extends Entity {
     }
 
     public void attack(User opponent, int blockId) {
-
+        for (Entity entity : opponent.getCity().getBlock(blockId).getEntities()) {
+            if (entity instanceof Defender) {
+                if (entity.getLevel() >= this.level) {
+                    System.out.println("not possible");
+                    return;
+                }
+            }
+        }
+        opponent.getCity().remove(blockId);
     }
 
     public void loot(User opponent, int blockId){

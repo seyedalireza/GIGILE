@@ -2,6 +2,16 @@ package model;
 
 public abstract class Entity {
     protected Long cost;
+    protected int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private int level;
 
     public Long getCost() {
