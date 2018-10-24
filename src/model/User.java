@@ -252,9 +252,9 @@ public class User {
         System.out.println("not possible");
     }
 
-    public void updateArmy(int blockId , Market market) {
+    public void updateArmy(int blockId , Army army) {
         ArrayList<Person> freePersons = getFreePersons();
-        if (market.getLevel() < 5) {
+        if (army.getLevel() < 5) {
             if (freePersons.size() >= 10) {
                 if (money >= 20000) {
                     for (int i = 0; i < 10; i++) {
@@ -295,9 +295,9 @@ public class User {
         System.out.println("not possible");
     }
 
-    public void updateDefender(int blockId , Market market) {
+    public void updateDefender(int blockId , Defender defender) {
         ArrayList<Person> freePersons = getFreePersons();
-        if (market.getLevel() < 5) {
+        if (defender.getLevel() < 5) {
             if (freePersons.size() >= 0) {
                 if (money >= 5000) {
                     for (int i = 0; i < 0; i++) {
