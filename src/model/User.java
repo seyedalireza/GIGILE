@@ -217,6 +217,46 @@ public class User {
         System.out.println("not possible");
     }
 
+    public void removeMarket(int blockId, Market market) {
+        for (Person worker : market.getWorkers()) {
+            worker.getFired();
+        }
+        if ((city.getBlock(blockId).getEntityCounter().getArmyNumber()-1) == market.getId()) {
+            city.getBlock(blockId).getEntityCounter().setEntityNumber(market.getId() -1);
+        }
+        Block block = city.getBlock(blockId);
+        changeSatisfactory(block, 1.0/market.getIncreaseScoreAmount());
+        block.getEntities().remove(market);
+        money -= 500;
+    }public void removePark(int blockId, Park market) {
+        if ((city.getBlock(blockId).getEntityCounter().getArmyNumber()-1) == market.getId()) {
+            city.getBlock(blockId).getEntityCounter().setEntityNumber(market.getId() -1);
+        }
+        Block block = city.getBlock(blockId);
+        changeSatisfactory(block, 1.0/market.getIncreaseScoreAmount());
+        block.getEntities().remove(market);
+        money -= 1000;
+    }public void removeArmy(int blockId, Army market) {
+        for (Person worker : market.getWorkers()) {
+            worker.getFired();
+        }
+        if ((city.getBlock(blockId).getEntityCounter().getArmyNumber()-1) == market.getId()) {
+            city.getBlock(blockId).getEntityCounter().setEntityNumber(market.getId() -1);
+        }
+        Block block = city.getBlock(blockId);
+        block.getEntities().remove(market);
+        money += 10000;
+    }public void removeDefender(int blockId, Defender market) {
+        for (Person worker : market.getWorkers()) {
+            worker.getFired();
+        }
+        if ((city.getBlock(blockId).getEntityCounter().getArmyNumber()-1) == market.getId()) {
+            city.getBlock(blockId).getEntityCounter().setEntityNumber(market.getId() -1);
+        }
+        Block block = city.getBlock(blockId);
+        block.getEntities().remove(market);
+        money += 10000;
+    }
     private void changeSatisfactory(Block block, double percent) {
         for (Entity entity: block.getEntities()) {
             if (entity instanceof Home) {
