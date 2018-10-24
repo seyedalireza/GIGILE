@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1b739dc4-d4b2-4424-ad5f-6191f0c2d2d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/User.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="153" column="49" lean-forward="true" selection-start-line="153" selection-start-column="49" selection-end-line="153" selection-end-column="49" />
+            <state relative-caret-position="259">
+              <caret line="157" column="5" lean-forward="true" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#687#688#0" expanded="true" />
@@ -381,7 +380,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540407842055" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540408206003" />
     <property name="last_opened_file_path" value="$USER_HOME$/Downloads/lombok.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -543,7 +542,7 @@
       <workItem from="1540321747826" duration="4167000" />
       <workItem from="1540329921933" duration="654000" />
       <workItem from="1540357602778" duration="158000" />
-      <workItem from="1540392911864" duration="10374000" />
+      <workItem from="1540392911864" duration="10619000" />
     </task>
     <task id="LOCAL-00001" summary="Counter class added">
       <created>1540393935312</created>
@@ -636,11 +635,18 @@
       <option name="project" value="LOCAL" />
       <updated>1540407618227</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="debug">
+      <created>1540407964916</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1540407964916</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18095000" />
+    <option name="totallyTimeSpent" value="18340000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="742" extended-state="6" />
@@ -880,8 +886,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="153" column="49" lean-forward="true" selection-start-line="153" selection-start-column="49" selection-end-line="153" selection-end-column="49" />
+        <state relative-caret-position="259">
+          <caret line="157" column="5" lean-forward="true" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#687#688#0" expanded="true" />

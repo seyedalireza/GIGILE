@@ -11,6 +11,9 @@ public class Home extends Entity {
     public Home(int floorNum, int unitNum) {
         this.floorNum = floorNum;
         this.unitNum = unitNum;
+        for (int i = 0; i < floorNum; i++) {
+            floors.add(new Floor(unitNum));
+        }
     }
 
     private int floorNum = 0;
