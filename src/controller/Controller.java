@@ -1,7 +1,5 @@
 package controller;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import model.Entity;
 import model.User;
 import model.gigilhome.Block;
@@ -75,9 +73,14 @@ public class Controller {
                 case "done":
                     changeTurn();
                     break;
-
             }
         }
+        if (users[0].isMyTurn()){
+            System.out.println(users[0].getCity().calculateScore()
+                    + " " + users[1].getCity().calculateScore());
+        }else
+            System.out.println(users[0].getCity().calculateScore()
+                    + " " + users[1].getCity().calculateScore());
     }
 
     private void changeTurn(){

@@ -1,10 +1,6 @@
 package model;
 
 import controller.EntityCounter;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import model.gigilhome.Block;
 import model.gigilhome.Floor;
 import model.gigilhome.Home;
@@ -16,12 +12,6 @@ import model.gilgFun.Park;
 import org.w3c.dom.css.Counter;
 import utils.Const;
 
-import java.util.ArrayList;
-
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class User {
     private String name;
     private double score = 0L;
