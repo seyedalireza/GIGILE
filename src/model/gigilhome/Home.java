@@ -11,6 +11,17 @@ import java.util.ArrayList;
 
 public class Home extends Entity {
     private int blockId;
+    private int id;
+
+    public Home(int floorNum, int unitNum) {
+        this.floorNum = floorNum;
+        this.unitNum = unitNum;
+    }
+
+    private int floorNum = 0;
+    private int unitNum = 0;
+    private ArrayList<Floor> floors = new ArrayList<>();
+    private final int score = 10;
 
     public int getBlockId() {
         return blockId;
@@ -55,12 +66,6 @@ public class Home extends Entity {
     public int getScore() {
         return score;
     }
-
-    private int id;
-    private int floorNum = 0;
-    private int unitNum = 0;
-    private ArrayList<Floor> floors = new ArrayList<>();
-    private final int score = 10;
 
     @Override
     public void update() {

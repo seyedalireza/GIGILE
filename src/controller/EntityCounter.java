@@ -1,7 +1,6 @@
 package controller;
 
 public class EntityCounter {
-    private static final EntityCounter counter = new EntityCounter();
 
     private int homeNumber = 0;
     private int floorNumber = 0;
@@ -13,11 +12,7 @@ public class EntityCounter {
     private int parkNumber = 0;
     private int personNumber;
 
-    private EntityCounter() {
-    }
-
-    public static EntityCounter getInstance() {
-        return counter;
+    public EntityCounter() {
     }
 
     public static EntityCounter getCounter() {

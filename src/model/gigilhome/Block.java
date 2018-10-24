@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Block extends Entity {
     private int id;
-
+    private int capacity = 15;
     public int getId() {
         return id;
     }

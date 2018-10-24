@@ -1,9 +1,13 @@
 package model;
 
+import controller.EntityCounter;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import model.gigilhome.Block;
+import model.gigilhome.Home;
+import org.w3c.dom.css.Counter;
 import utils.Const;
 
 @Getter
@@ -14,6 +18,7 @@ public class User {
     private String name;
     private double score = 0L;
     private double baseScore;
+    private EntityCounter entityCounter = new EntityCounter();
 
     public double getBaseScore() {
         return baseScore;
@@ -79,4 +84,37 @@ public class User {
         System.out.println(this.city.calculateScore());
     }
 
+    public void addBlock() {
+        if (money >=1000) {
+            Block block = new Block();
+            block.setId(entityCounter.getBlockNumber());
+            money-= 1000;
+        }
+        System.out.println("not possible");
+    }
+
+    public void addHome(int floorSize , int blockId , int unitSize) {
+        int cost = (floorSize*unitSize)*100+floorSize*300+700;
+        if (money >= cost) {
+            money -= cost;
+            city.getBlock(blockId).getEntities().add(new Home(floorSize , unitSize));
+        }
+        System.out.println("not possible");
+    }
+
+    public void addMarket() {
+
+    }
+
+    public void addPark() {
+
+    }
+
+    public void addArmy() {
+
+    }
+
+    public void addDefender() {
+
+    }
 }
