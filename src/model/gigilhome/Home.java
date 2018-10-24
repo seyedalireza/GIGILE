@@ -16,6 +16,20 @@ public class Home extends Entity {
         }
     }
 
+    public void increaseFloor(int x) {
+        this.floorNum += x;
+        for (int i = 0; i < x; i++) {
+            this.floors.add(new Floor(unitNum));
+        }
+    }
+
+    public void increaseUnit(int x) {
+        this.unitNum += x;
+        for (Floor floor : floors) {
+            floor.increaseUnit(x);
+        }
+    }
+
     private int floorNum = 0;
     private int unitNum = 0;
     private ArrayList<Floor> floors = new ArrayList<>();

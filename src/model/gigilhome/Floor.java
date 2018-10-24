@@ -26,6 +26,12 @@ public class Floor extends Entity{
         }
     }
 
+    public void increaseUnit(int x) {
+        for (int i = 0; i < x; i++) {
+            units.add(new Unit());
+        }
+    }
+
     @Override
     public void remove(int id) {
 

@@ -124,24 +124,21 @@ public class User {
         }
         System.out.println("not possible");
     }
-    public void addHome(int unitId , int blockId , boolean unit , boolean floor) {
-//            if (floorSize >= 3 && floorSize <= 6 && unitSize >= 1 && unitSize <= 4) {
-//                int cost = (floorSize * unitSize) * 100 + floorSize * 300 + 700;
-//                if (money >= cost) {
-//                    money -= cost;
-//                    Home home = new Home(floorSize, unitSize);
-//                    home.setId(entityCounter.getHomeNumber());
-//                    printId(home);
-//                    city.getBlock(blockId).getEntities().add(home);
-//                    return;
-//                }
-//        if(floor && unit) {
-//            if (money >= 1)
-//        } else if (floor) {
-//
-//        } else if (unit) {
-//
-//        }
+    public void updateHome(int unitId , int blockId , boolean unit , boolean floor) {
+        if(floor && unit) {
+            if (money >= (getHome(blockId , unitId).getFloorNum()*50+getHome(blockId , unitId).getUnitNum() + 300)) {
+                getHome(blockId , unitId).increaseFloor(1);
+                getHome(blockId , unitId).increaseUnit(1);
+            }
+        } else if (floor) {
+            if (money >= (getHome(blockId , unitId).getUnitNum() + 300)) {
+                getHome(blockId , unitId).increaseFloor(1);
+            }
+        } else if (unit) {
+            if (money >= (getHome(blockId , unitId).getFloorNum()*50)) {
+                getHome(blockId , unitId).increaseUnit(1);
+            }
+        }
             System.out.println("not possible");
     }
 
