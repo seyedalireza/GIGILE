@@ -115,8 +115,11 @@ public class User {
         System.out.println(this.money);
     }
 
+    public double getScores(){
+        return baseScore + this.city.calculateScore();
+    }
     public void seeScore(){
-        System.out.printf("%.2f", baseScore + this.city.calculateScore());
+        System.out.printf("%.2f\n", baseScore + this.city.calculateScore());
     }
 
     public void addBlock() {
@@ -177,16 +180,28 @@ public class User {
     public void updateHome(int unitId , int blockId , boolean unit , boolean floor) {
         Home home = getHome(blockId, unitId);
         if(floor && unit && home.getFloorNum() < 6 && home.getUnitNum() < 4) {
-            if (money >= (home.getFloorNum()*50+ home.getUnitNum() + 300)) {
+            int before = home.getFloorNum() * home.getUnitNum();
+            int after = 0;
+            int added = 0;
+            if (floor){
+                added++;
+                if (unit)
+                    after += (home.getFloorNum()+1)*(home.getUnitNum() + 1);
+                else
+                    after += (home.getFloorNum() + 1)*home.getUnitNum();
+            }
+            else
+                after += home.getFloorNum() * (home.getUnitNum() + 1);
+            if (money >= ((after - before)*50+ (added) * 300)) {
                 home.increaseFloor(1);
                 home.increaseUnit(1);
-                money -=  (home.getFloorNum()*50+ home.getUnitNum() + 300);
+                money -=  ((after - before)*50+ (added) * 300);
                 return;
             }
         } else if (floor && home.getFloorNum() < 6 ) {
-            if (money >= (home.getUnitNum() + 300)) {
+            if (money >= (300)) {
                 home.increaseFloor(1);
-                money -= (home.getUnitNum() + 300);
+                money -= (300);
 
                 return;
             }

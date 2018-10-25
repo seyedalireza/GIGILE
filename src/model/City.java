@@ -27,7 +27,7 @@ public class City {
                 return block;
             }
         }
-        return null;
+        return new Block();
     }
 
     public void attack(User opponent, int blockId) {
@@ -48,7 +48,6 @@ public class City {
                 if (entity instanceof Army)
                     army = (Army) entity;
         }
-        assert army != null;
         army.loot(opponent, blockId);
     }
 

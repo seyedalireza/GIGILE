@@ -83,13 +83,9 @@ public class Controller {
             command = scanner.nextLine();
         }
         if (users[0].isMyTurn()){
-            users[0].seeScore();
-            System.out.print(" ");
-            users[1].seeScore();
+            System.out.printf("%.2f %.2f\n",users[0].getScores(), users[1].getScores());
         }else{
-            users[1].seeScore();
-            System.out.print(" ");
-            users[0].seeScore();
+            System.out.printf("%.2f %.2f\n",users[1].getScores(), users[0].getScores());
         }
     }
 
