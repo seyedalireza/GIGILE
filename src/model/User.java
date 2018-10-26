@@ -71,6 +71,26 @@ public class User {
         isMyTurn = myTurn;
     }
 
+    public void increaseMoney(int value) {
+        this.money += value;
+    }
+
+    public void seeGills() {
+        System.out.println(this.money);
+    }
+
+    public double getScores(){
+        return baseScore + this.city.calculateScore();
+    }
+
+    public void seeScore(){
+        System.out.printf("%.2f\n", baseScore + this.city.calculateScore());
+    }
+
+    private void printId(Entity entity) {
+        System.out.println(entity.id);
+    }
+    
     public void changeTurnActions(){
         for (Block block: city.getBlocks())
             for (Entity entity: block.getEntities()) {
@@ -94,7 +114,7 @@ public class User {
             }
         money += calculateMoney();
     }
-    
+
     private int calculateMoney() {
         int total = 0;
         total += getFreePersons().size() * 100;
@@ -110,17 +130,6 @@ public class User {
         return total;
     }
 
-
-    public void seeGills() {
-        System.out.println(this.money);
-    }
-
-    public double getScores(){
-        return baseScore + this.city.calculateScore();
-    }
-    public void seeScore(){
-        System.out.printf("%.2f\n", baseScore + this.city.calculateScore());
-    }
 
     public void addBlock() {
         if (money >=1000) {
@@ -294,27 +303,8 @@ public class User {
         changeSatisfactory(block, 1.0/market.getIncreaseScoreAmount());
         block.getEntities().remove(market);
         money -= 1000;
-    }public void removeArmy(int blockId, Army market) {
-        for (Person worker : market.getWorkers()) {
-            worker.getFired();
-        }
-        if ((city.getBlock(blockId).getEntityCounter().getEntityNumber()) == market.getId()) {
-            city.getBlock(blockId).getEntityCounter().setEntityNumber(market.getId() -1);
-        }
-        Block block = city.getBlock(blockId);
-        block.getEntities().remove(market);
-        money += 10000;
-    }public void removeDefender(int blockId, Defender market) {
-        for (Person worker : market.getWorkers()) {
-            worker.getFired();
-        }
-        if ((city.getBlock(blockId).getEntityCounter().getEntityNumber()) == market.getId()) {
-            city.getBlock(blockId).getEntityCounter().setEntityNumber(market.getId() -1);
-        }
-        Block block = city.getBlock(blockId);
-        block.getEntities().remove(market);
-        money += 10000;
     }
+    
     private void changeSatisfactory(Block block, double percent) {
         for (Entity entity: block.getEntities()) {
             if (entity instanceof Home) {
@@ -367,7 +357,6 @@ public class User {
         }
         System.out.println("not possible");
     }
-
     public void updateArmy(int blockId , Army army) {
         ArrayList<Person> freePersons = getFreePersons();
         if (army.getLevel() < 5) {
@@ -389,10 +378,18 @@ public class User {
         }
         System.out.println("not possible");
     }
-    private void printId(Entity entity) {
-        System.out.println(entity.id);
-    }
 
+    public void removeArmy(int blockId, Army army) {
+        for (Person worker : army.getWorkers()) {
+            worker.getFired();
+        }
+        if ((city.getBlock(blockId).getEntityCounter().getEntityNumber()) == army.getId()) {
+            city.getBlock(blockId).getEntityCounter().setEntityNumber(army.getId() -1);
+        }
+        Block block = city.getBlock(blockId);
+        block.getEntities().remove(army);
+        money += 10000;
+    }
     public void addDefender(int blockId) {
         if(hasCapacityBlock(blockId)) {
             ArrayList<Person> freePersons = getFreePersons();
@@ -424,15 +421,23 @@ public class User {
                     defender.setLevel(defender.getLevel()+1);
                     defender.setDefendLevel(defender.getLevel() * .2);
                     money -= 5000;
-//                    Block block = getCity().getBlock(blockId);
-//                    market.setLevel(market.getLevel() + 1);
-//                    market.setIncreaseScoreAmount(1 + .2 * market.getLevel());
-//                    changeSatisfactory(block, (1 + market.getLevel() * .2) / (1 + (market.getLevel() - 1) * .2));
                     return;
                 }
             }
         }
         System.out.println("not possible");
+    }
+
+    public void removeDefender(int blockId, Defender defender) {
+        for (Person worker : defender.getWorkers()) {
+            worker.getFired();
+        }
+        if ((city.getBlock(blockId).getEntityCounter().getEntityNumber()) == defender.getId()) {
+            city.getBlock(blockId).getEntityCounter().setEntityNumber(defender.getId() -1);
+        }
+        Block block = city.getBlock(blockId);
+        block.getEntities().remove(defender);
+        money += 10000;
     }
 
     public ArrayList<Person> getFreePersons() {
@@ -453,9 +458,5 @@ public class User {
             }
         }
         return people;
-    }
-
-    public void increaseMoney(int value) {
-        this.money += value;
     }
 }

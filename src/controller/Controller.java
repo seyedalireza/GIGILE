@@ -232,7 +232,7 @@ public class Controller {
                 break;
             case "score":
                 current = users[0];
-                if (!current.isMyTurn()){
+                if (!current.isMyTurn()) {
                     current = users[1];
                 }
                 current.seeScore();
